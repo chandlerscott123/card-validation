@@ -3,7 +3,7 @@
 function sumCardDigits(cardNumStr){
   let sum=0;
   let num;
-  let cardNumArr = cardNumStr.split(""); //make array
+  const cardNumArr = cardNumStr.split(""); //make array
   
   //check length of cardNumArr
   if(cardNumStr.length===1){
@@ -21,5 +21,20 @@ function sumCardDigits(cardNumStr){
     });
     return sum;
   }
+
+}
+
+
+function sumAlternatingCardDigits(cardNum){
+  let currentNum,sum;
+  const cardNumArr = cardNum.split("");
+
+  for (let i = cardNumArr.length-1; i>=0; i=i-2){
+
+    console.log(cardNumArr[i]);
+
+  }
+
+  return null;
 
 }
