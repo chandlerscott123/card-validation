@@ -1,12 +1,21 @@
 
+function isOne(string){
+  if(string.length ===1){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 
 function sumCardDigits(cardNumStr){
   let sum=0;
   let num;
-  const cardNumArr = cardNumStr.split(""); //make array
+  let cardNumArr = cardNumStr.split(""); //make array
+ 
   
   //check length of cardNumArr
-  if(cardNumStr.length===1){
+  if(isOne(cardNumStr)){
     
     //convert to int and return sum if length is 1
     sum = parseInt(cardNumStr[0]);
@@ -25,16 +34,25 @@ function sumCardDigits(cardNumStr){
 }
 
 
-function sumAlternatingCardDigits(cardNum){
-  let currentNum,sum;
-  const cardNumArr = cardNum.split("");
+function doubleAlternatingCardDigits(cardNum){
+  let currentNum, sum, toSumArr, processed, cardNumArr;
+  let numStr=cardNum;
 
-  for (let i = cardNumArr.length-1; i>=0; i=i-2){
-
-    console.log(cardNumArr[i]);
-
+  if (isOne(cardNum)){
+    sum=cardNum[0];
+    return sum;
   }
 
-  return null;
+  else{
+    cardNumArr = cardNum.split("");
+    for (let i = cardNumArr.length-1; i>=0; i=i-2){
+
+      currentNum=cardNumArr[i];
+      sum = (parseInt(currentNum)*2).toString();
+      cardNumArr[i] = isOne(sum) ? sum : (parseInt(sum[0]) + parseInt(sum[1])).toString();
+    }
+  }
+  processed = cardNumArr.join("");
+  return processed;
 
 }
