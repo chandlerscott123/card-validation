@@ -1,5 +1,8 @@
 
 
 function sumCardDigits(cardNum){
-  return null;
+  let sum=0; 
+  sum = parseInt(cardNum[0]);
+  return sum;
+
 }
