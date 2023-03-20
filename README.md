@@ -25,6 +25,7 @@ Code: sumCardDigits("11");
 Expected Output: 2
 
 
+
 Describe: sumAlternatingCardDigits()
 
 Test: "It should return 0 if the card number is 0."
