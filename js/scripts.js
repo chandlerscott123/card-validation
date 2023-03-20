@@ -56,3 +56,11 @@ function doubleAlternatingCardDigits(cardNum){
   return processed;
 
 }
+
+
+function isValid(num){
+  return num.endsWith('0');
+}
+
+
+
