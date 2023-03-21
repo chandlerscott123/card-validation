@@ -3,7 +3,9 @@
 <head>
   <title>Beautiful Numbers</title>
   <script src="js/scripts.js"></script>
+  <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
   <div id="credit-card">
   <h1>Credit Card Validator</h1>
@@ -13,7 +15,9 @@
     <input type="text" name="card-num" id="card-num"><br>
     <button type="submit">Validate Card Number</button>
   </form>
-  <div id="result">
+  <br>
+  <div id="result" class="hidden">
+    <p>Your <span id="type"></span> card is <span id="valid"></span></p>
   </div>
   </div>
 </body>

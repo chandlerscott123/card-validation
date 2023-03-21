@@ -11,7 +11,7 @@ function isOne(string){
 function sumCardDigits(cardNumStr){
   let sum=0;
   let num;
-  let cardNumArr = cardNumStr.split(""); //make array
+  let cardNumArr = cardNumStr.split(""); 
  
   
   //check length of cardNumArr
@@ -65,14 +65,15 @@ function doubleAlternatingCardDigits(cardNum){
 
 
 
-//checks that cardNum ends in 0
+//check that cardNum ends in 0
 function isValid(num){
-  return num.endsWith('0');
+  return num.endsWith(0);
 }
 
 
 function processCard(cardNum){
 
+  //process card number, return true if valid
   let cardNum1 = doubleAlternatingCardDigits(cardNum);
   let cardNum2 = sumCardDigits(cardNum1).toString();
   if(isValid(cardNum2)){
@@ -89,7 +90,9 @@ function getCardType(cardNum){
   let cardType;
   let cardIdArr = ['3', '4', '5', '6'];
   let cardTypeArr = ["American Express", "Visa", "Mastercard", "Discover"];
-  
+
+  //card number starts with an element in cardIdArr, 
+  //match the index in cardTypeArr
   if(cardIdArr.indexOf(cardNum[0])+1){
     cardType = cardTypeArr[cardIdArr.indexOf(cardNum[0])];
   }
@@ -101,11 +104,16 @@ function getCardType(cardNum){
 
 function handleSubmission(event){
   event.preventDefault();
-  let cardNum = document.getElementById("card-num").value;
+  const cardNum = document.getElementById("card-num").value;
+  const isCardValid = processCard(cardNum);
+  const cardType = getCardType(cardNum);
+  const cardDiv = document.getElementById("result");
+  cardDiv.removeAttribute("class");
+  const typeSpan = document.querySelector("span#type");
+  const validSpan = document.querySelector("span#valid");
 
-  
-
-
+  typeSpan.innerText = cardType;
+  validSpan.innerText= isCardValid ? "valid" : "invalid";
 
 }
 
